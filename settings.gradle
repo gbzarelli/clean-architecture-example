@@ -7,5 +7,5 @@ include "application:entrypoints"
 include "application:configuration"
 
 // testing
-include "acceptance-tests"
-include "integration-tests"
+//include "acceptance-tests"
+//include "integration-tests"

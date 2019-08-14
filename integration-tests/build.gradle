@@ -29,9 +29,9 @@ processTestResources.dependsOn copyTestResources
 
 
 dependencies {
-    compile project(":application:configuration")
-    compile libs.unit_tests
-    compile libs.integration_test
+   implementation project(":application:configuration")
+   implementation libs.unit_tests
+   implementation libs.integration_test
 
-    testCompile project(":acceptance-tests")
+    testImplementation project(":acceptance-tests")
 }

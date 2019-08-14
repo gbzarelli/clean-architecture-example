@@ -1,31 +1,31 @@
-description = "Wires the application together."
-
-// configure spring boot with gradle: start
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springboot_version}")
-    }
+plugins {
+    id 'org.springframework.boot' version '2.1.7.RELEASE'
 }
-apply plugin: 'spring-boot'
+
+description = "Wires the application together."
 // configure spring boot with gradle: end
 
 // generate the main application jar in the "application" folder, to make it easier to find
 jar {
-    archiveName = "clean-architecture-example.jar"
-    destinationDir = project(":application").getBuildDir()
+    archivesBaseName = "clean-architecture-example"
 }
+
+File applicationBuildDir = project(":application").getBuildDir()
+task copyJarToBin(type: Copy) {
+    from jar
+    into applicationBuildDir
+}
+
+compileJava.finalizedBy copyJarToBin
 
 dependencies {
     compile project(":application:core")
     compile project(":application:dataproviders")
     compile project(":application:entrypoints")
 
-    compile libs.spring_boot
-    compile libs.database_initialisation
-    compile libs.log
+    implementation libs.database_initialisation
+    implementation libs.spring_boot
+    implementation libs.log
 
-    testCompile libs.unit_tests
+    testImplementation libs.unit_tests
 }

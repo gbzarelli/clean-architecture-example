@@ -1,10 +1,10 @@
 description = "Ways to interact with the application (e.g. Rest APIs, Jobs, GUIs, etc.)"
 
 dependencies {
-    compile project(":application:core")
+    implementation project(":application:core")
 
-    compile libs.rest
-    compile libs.log
+    implementation libs.rest
+    implementation libs.log
 
-    testCompile libs.unit_tests
+    testImplementation libs.unit_tests
 }

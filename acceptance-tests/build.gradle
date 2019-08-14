@@ -34,10 +34,10 @@ task copyTestResources(type: Copy) {
 processTestResources.dependsOn copyTestResources
 
 dependencies {
-    compile project(":application:configuration")
-    compile libs.unit_tests
-    compile libs.acceptance_tests
-    compile libs.end_to_end_test
+   implementation project(":application:configuration")
+   implementation libs.unit_tests
+   implementation libs.acceptance_tests
+   implementation libs.end_to_end_test
 
-    testCompile libs.string_utils
+    implementation libs.string_utils
 }

@@ -11,69 +11,63 @@ subprojects {
     }
 
     ext {
-        spring_version = "4.2.5.RELEASE"
-        springboot_version = "1.3.3.RELEASE"
+        spring_version = "2.1.7.RELEASE"
+        libs = [
+                unit_tests             : [
+                        "junit:junit:4.+",
+                        "org.mockito:mockito-core:1.10.19",
+                        "org.assertj:assertj-core:3.3.0"
+                ],
+
+                acceptance_tests       : [
+                        "com.googlecode.yatspec:yatspec:1.20"
+                ],
+
+                integration_test       : [
+                        "org.springframework.boot:spring-boot-starter-test:${spring_version}",
+                        "org.skyscreamer:jsonassert:1.3.0",
+                        "com.cedarsoftware:json-io:4.4.0"
+                ],
+
+                end_to_end_test        : [
+                        "org.springframework.boot:spring-boot-starter-test:${spring_version}",
+                        "com.mashape.unirest:unirest-java:1.4.8",
+                        "org.skyscreamer:jsonassert:1.3.0",
+                        "com.cedarsoftware:json-io:4.4.0"
+                ],
+
+                spring_boot            : [
+                        "org.springframework.boot:spring-boot-starter-web:${spring_version}",
+                        "org.springframework.boot:spring-boot-starter-actuator:${spring_version}",
+                        "org.springframework.boot:spring-boot-starter-logging:${spring_version}",
+                ],
+
+                rest                   : [
+                        "org.springframework.boot:spring-boot-starter-web:${spring_version}"
+                ],
+
+                database_initialisation: [
+                        "org.springframework.boot:spring-boot-starter-jdbc:${spring_version}",
+                        "com.h2database:h2:1.4.191"
+                ],
+
+                database               : [
+                        "org.springframework.boot:spring-boot-starter-jdbc:${spring_version}"
+                ],
+
+                string_utils           : [
+                        "org.apache.commons:commons-lang3:3.4"
+                ],
+
+                log                    : [
+                        "org.slf4j:slf4j-api:1.7.19"
+                ]
+        ]
     }
-
-    ext.libs = [
-            unit_tests             : [
-                    "junit:junit:4.+",
-                    "org.mockito:mockito-core:1.10.19",
-                    "org.assertj:assertj-core:3.3.0"
-            ],
-
-            acceptance_tests       : [
-                    "com.googlecode.yatspec:yatspec:1.20"
-            ],
-
-            integration_test       : [
-                    "org.springframework:spring-test:${spring_version}",
-                    "org.skyscreamer:jsonassert:1.3.0",
-                    "com.cedarsoftware:json-io:4.4.0"
-            ],
-
-            end_to_end_test        : [
-                    "org.springframework:spring-test:${spring_version}",
-                    "com.mashape.unirest:unirest-java:1.4.8",
-                    "org.skyscreamer:jsonassert:1.3.0",
-                    "com.cedarsoftware:json-io:4.4.0"
-            ],
-
-            spring_boot            : [
-                    "org.springframework.boot:spring-boot-starter-web:${springboot_version}",
-                    "org.springframework.boot:spring-boot-starter-actuator:${springboot_version}",
-                    "org.springframework.boot:spring-boot-starter-logging:${springboot_version}",
-            ],
-
-            rest                   : [
-                    "org.springframework:spring-web:${spring_version}"
-            ],
-
-            database_initialisation: [
-                    "org.springframework:spring-jdbc:${spring_version}",
-                    "com.h2database:h2:1.4.191"
-            ],
-
-            database               : [
-                    "org.springframework:spring-jdbc:${spring_version}"
-            ],
-
-            string_utils           : [
-                    "org.apache.commons:commons-lang3:3.4"
-            ],
-
-            log                    : [
-                    "org.slf4j:slf4j-api:1.7.19"
-            ]
-    ]
 }
 
 // apply java plugin to all modules
 configure(allprojects - project(":application")) {
     apply plugin: "java"
     sourceCompatibility = JavaVersion.VERSION_1_8
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = "2.11"
 }

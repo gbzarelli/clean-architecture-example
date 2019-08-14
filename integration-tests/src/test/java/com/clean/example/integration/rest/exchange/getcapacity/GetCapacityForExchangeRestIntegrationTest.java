@@ -5,6 +5,7 @@ import com.clean.example.core.usecase.exchange.getcapacity.ExchangeNotFoundExcep
 import com.clean.example.core.usecase.exchange.getcapacity.GetCapacityForExchangeUseCase;
 import com.clean.example.entrypoints.rest.exchange.capacity.GetCapacityForExchangeEndpoint;
 import com.clean.example.yatspec.YatspecTest;
+import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -73,7 +74,7 @@ public class GetCapacityForExchangeRestIntegrationTest extends YatspecTest {
         log("Response: Status Code", responseStatusCode);
     }
 
-    private void thenTheCapacityIsReturned() {
+    private void thenTheCapacityIsReturned() throws JSONException {
         log("Response: Content", formatJson(responseContent));
         assertThat(responseStatusCode).isEqualTo(200);
 

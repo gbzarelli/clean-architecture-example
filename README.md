@@ -34,7 +34,7 @@ Clean architecture gives us all these benefits:
 * **Independent from Database**, which is treated just like any other data provider. Our app has real use cases rather than being a CRUD system
 * **Screaming architecture** a.k.a. it screams its intended usage. When you look at the package structure you get a feel for what the application does rather than seeing technical details
 * **All business logic is in a use case** so it's easy to find and it's not duplicated anywhere else
-* **Hard to do the wrong thing** because modules enforce compilation dependencies. If you try to use something that you're not meant to, the app doesn't compile
+* **Hard to do the wrong thing** because modules enforce compilation dependencies. If you try to use something that you're not meant to, the app doesn'timplementation
 * **We're always ready to deploy** by leaving the wiring up of the object for last or by using feature flags, so we get all the benefits of continuous integration (no need for feature branches)
 * **Swarming on stories** so that different pairs can easily work on the same story at the same time to complete it quicker
 * **Good monolith** with clear use cases that you can split in microservices later one, once you've learnt more about them

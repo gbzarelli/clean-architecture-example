@@ -8,7 +8,6 @@ import static org.mockito.Mockito.mock;
 
 @Configuration
 public class MocksConfigurationForEndToEndTests {
-
     @Bean
     public DeviceClient deviceClient() {
         return mock(DeviceClient.class);
