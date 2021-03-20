@@ -1,4 +1,7 @@
-# clean-architecture-example
+# clean-architecture-example 
+
+# See the new version project model: https://github.com/helpdeveloper/java-modular-architecture
+
 This is an example project to show what Clean Architecture would look like (in Java).
 
 It was originally created to go together with [this presentation](http://www.slideshare.net/mattiabattiston/real-life-clean-architecture-61242830)
